@@ -1,37 +1,38 @@
 "use client";
 
-import { FC } from 'react';
+import { FC } from "react";
 import {
   ChatBubble,
   ChatBubbleAvatar,
   ChatBubbleMessage,
   ChatBubbleAction,
   ChatBubbleActionWrapper,
-} from '@/components/ui/chat/chat-bubble';
-import { ChatMessageList } from '@/components/ui/chat/chat-message-list';
+} from "@/components/ui/chat/chat-bubble";
+import { ChatMessageList } from "@/components/ui/chat/chat-message-list";
 import { ChatInput } from "@/components/ui/chat/chat-input";
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 
 const metadata = {
-  title: 'Top',
-  description: 'Top page',
+  title: "Top",
+  description: "Top page",
 };
 
 const messages = [
   {
     id: 1,
-    message: 'Hello, how has your day been? I hope you are doing well.',
-    sender: 'user',
+    message: "Hello, how has your day been? I hope you are doing well.",
+    sender: "user",
   },
   {
     id: 2,
-    message: 'Hi, I am doing well, thank you for asking. How can I help you today?',
-    sender: 'bot',
+    message:
+      "Hi, I am doing well, thank you for asking. How can I help you today?",
+    sender: "bot",
   },
   {
     id: 3,
-    message: '',
-    sender: 'bot',
+    message: "",
+    sender: "bot",
     isLoading: true,
   },
 ];
@@ -39,15 +40,15 @@ const messages = [
 const actionIcons = [
   {
     icon: () => <span>👍</span>,
-    type: 'like',
+    type: "like",
   },
   {
     icon: () => <span>👎</span>,
-    type: 'dislike',
+    type: "dislike",
   },
   {
     icon: () => <span>❓</span>,
-    type: 'question',
+    type: "question",
   },
 ];
 
@@ -57,13 +58,12 @@ const Page: FC = () => {
       <h1 className="text-2xl font-bold">Top Page</h1>
       <p>This is the top page.</p>
       <div>
-
         <ChatMessageList>
           {messages.map((message, index) => {
-            const variant = message.sender === 'user' ? 'sent' : 'received';
+            const variant = message.sender === "user" ? "sent" : "received";
             return (
               <ChatBubble key={message.id} variant={variant}>
-                <ChatBubbleAvatar fallback={variant === 'sent' ? 'US' : 'AI'} />
+                <ChatBubbleAvatar fallback={variant === "sent" ? "US" : "AI"} />
                 <ChatBubbleMessage isLoading={message.isLoading}>
                   {message.message}
                 </ChatBubbleMessage>
@@ -75,19 +75,21 @@ const Page: FC = () => {
                       key={type}
                       icon={<Icon />}
                       // icon={<Icon className="size-4" />}
-                      onClick={() => console.log('Action ' + type + ' clicked for message ' + index)}
+                      onClick={() =>
+                        console.log(
+                          "Action " + type + " clicked for message " + index,
+                        )
+                      }
                     />
                   ))}
                 </ChatBubbleActionWrapper>
               </ChatBubble>
-            )
+            );
           })}
         </ChatMessageList>
       </div>
       <div>
-        <form
-          className="relative rounded-lg border bg-background focus-within:ring-1 focus-within:ring-ring p-1"
-        >
+        <form className="relative rounded-lg border bg-background focus-within:ring-1 focus-within:ring-ring p-1">
           <ChatInput
             placeholder="Type your message here..."
             className="min-h-12 resize-none rounded-lg bg-background border-0 p-3 shadow-none focus-visible:ring-0"
@@ -103,10 +105,7 @@ const Page: FC = () => {
               <span className="sr-only">Use Microphone</span>
             </Button>
 
-            <Button
-              size="sm"
-              className="ml-auto gap-1.5"
-            >
+            <Button size="sm" className="ml-auto gap-1.5">
               Send Message
               {/* <CornerDownLeft className="size-3.5" /> */}
             </Button>
@@ -115,6 +114,6 @@ const Page: FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Page;
