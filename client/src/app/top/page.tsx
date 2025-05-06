@@ -19,18 +19,16 @@ const IdeaItem = ({ idea, ...props }: { idea: string } & BoxProps) => {
       display="flex"
       alignItems="center"
       padding={4}
-      borderRadius="md"
       marginBottom={2}
       backgroundColor="white"
-      boxShadow="md"
-      _hover={{ boxShadow: "lg" }}
+      borderWidth="0 0 1px 0"
       {...props}
     >
       <HStack style={{ width: "100%" }}>
         <Box flex="1">{idea}</Box>
         <Avatar.Root>
-          <Avatar.Fallback name="Segun Adebayo" />
-          <Avatar.Image src="https://bit.ly/sage-adebayo" />
+          <Avatar.Fallback name="You" />
+          {/* <Avatar.Image src="" /> */}
         </Avatar.Root>
       </HStack>
     </Box>
