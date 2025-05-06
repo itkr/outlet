@@ -3,6 +3,7 @@
 import { useState } from "react";
 import {
   Avatar,
+  Heading,
   Box,
   BoxProps,
   Button,
@@ -49,42 +50,36 @@ const Page = () => {
   };
 
   return (
-    <Container
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        padding: "2rem",
-      }}
-    >
-      <Stack width="100%">
-        <Box>
-          <h1>Your Ideas</h1>
-          {ideas.map((idea, index) => (
-            <IdeaItem key={index} idea={idea} />
-          ))}
-        </Box>
-        <h2>Submit Your Idea</h2>
-        <Box>
-          <form onSubmit={onSubmit}>
-            <Stack>
-              <TextField
-                name="idea"
-                label="Idea"
-                helperText="Write your idea here"
-                errorText="This field is required"
-                optionalText="Optional"
-                required
-              />
-              <Button type="submit" colorScheme="teal">
-                Submit
-              </Button>
-            </Stack>
-          </form>
-        </Box>
-      </Stack>
-    </Container>
+    <Stack width="100%" gap={14}>
+      <Box>
+        <h1>Your Ideas</h1>
+        {ideas.map((idea, index) => (
+          <IdeaItem key={index} idea={idea} />
+        ))}
+      </Box>
+      <Box style={{ textAlign: "center" }}>
+        <Heading as="h2" marginBottom={4}>
+          Submit Your Idea
+        </Heading>
+        <form onSubmit={onSubmit}>
+          <HStack gap={8} justifyContent="center">
+            <Avatar.Root>
+              <Avatar.Fallback name="You" />
+              {/* <Avatar.Image src="" /> */}
+            </Avatar.Root>
+            <TextField name="idea" />
+            <Button
+              type="submit"
+              colorScheme="teal"
+              variant="solid"
+              style={{ padding: "0.5rem 1rem" }}
+            >
+              Submit
+            </Button>
+          </HStack>
+        </form>
+      </Box>
+    </Stack>
   );
 };
 
