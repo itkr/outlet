@@ -11,6 +11,14 @@ import {
 import { ChatMessageList } from "@/components/ui/chat/chat-message-list";
 import { ChatInput } from "@/components/ui/chat/chat-input";
 import { Button } from "@/components/ui/button";
+import {
+  Paperclip,
+  Microphone,
+  CornerDownLeft,
+  Like,
+  Dislike,
+  Question,
+} from "@mynaui/icons-react";
 
 const metadata = {
   title: "Top",
@@ -39,15 +47,15 @@ const messages = [
 
 const actionIcons = [
   {
-    icon: () => <span>👍</span>,
+    icon: () => (<Like className="size-4" />),
     type: "like",
   },
   {
-    icon: () => <span>👎</span>,
+    icon: () => (<Dislike className="size-4" />),
     type: "dislike",
   },
   {
-    icon: () => <span>❓</span>,
+    icon: () => (<Question className="size-4" />),
     type: "question",
   },
 ];
@@ -74,7 +82,6 @@ const Page: FC = () => {
                       className="size-7"
                       key={type}
                       icon={<Icon />}
-                      // icon={<Icon className="size-4" />}
                       onClick={() =>
                         console.log(
                           "Action " + type + " clicked for message " + index,
@@ -96,18 +103,16 @@ const Page: FC = () => {
           />
           <div className="flex items-center p-3 pt-0">
             <Button variant="ghost" size="icon">
-              {/* <Paperclip className="size-4" /> */}
+              <Paperclip className="size-4" />
               <span className="sr-only">Attach file</span>
             </Button>
-
             <Button variant="ghost" size="icon">
-              {/* <Mic className="size-4" /> */}
+              <Microphone className="size-4" />
               <span className="sr-only">Use Microphone</span>
             </Button>
-
             <Button size="sm" className="ml-auto gap-1.5">
               Send Message
-              {/* <CornerDownLeft className="size-3.5" /> */}
+              <CornerDownLeft className="size-3.5" />
             </Button>
           </div>
         </form>
