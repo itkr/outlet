@@ -13,14 +13,14 @@ import { ChatInput } from "@/components/ui/chat/chat-input";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-//import {
-//  Paperclip,
-//  Microphone,
-//  CornerDownLeft,
-//  Like,
-//  Dislike,
-//  Question,
-//} from "@mynaui/icons-react";
+import {
+  Paperclip,
+  Mic,
+  CornerDownLeft,
+  ThumbsUp,
+  ThumbsDown,
+  CircleHelp,
+} from "lucide-react";
 
 const metadata = {
   title: "Top",
@@ -42,18 +42,15 @@ const firstBotMessage: Message = {
 
 const actionIcons = [
   {
-    // icon: () => (<Like className="size-4" />),
-    icon: () => <span className="size-4">👍</span>,
+    icon: () => <ThumbsUp className="size-4" />,
     type: "like",
   },
   {
-    // icon: () => (<Dislike className="size-4" />),
-    icon: () => <span className="size-4">👎</span>,
+    icon: () => <ThumbsDown className="size-4" />,
     type: "dislike",
   },
   {
-    // icon: () => (<Question className="size-4" />),
-    icon: () => <span className="size-4">❓</span>,
+    icon: () => <CircleHelp className="size-4" />,
     type: "question",
   },
 ];
@@ -166,19 +163,16 @@ const Page: FC = () => {
           />
           <div className="flex items-center p-3 pt-0">
             <Button variant="ghost" size="icon">
-              {/* <Paperclip className="size-4" /> */}
-              <span className="size-4">📎</span>
+              <Paperclip className="size-4" />
               <span className="sr-only">Attach file</span>
             </Button>
             <Button variant="ghost" size="icon">
-              {/* <Microphone className="size-4" /> */}
-              <span className="size-4">🎤</span>
+              <Mic className="size-4" />
               <span className="sr-only">Use Microphone</span>
             </Button>
             <Button size="sm" className="ml-auto gap-1.5" type="submit">
               Send Message
-              {/* <CornerDownLeft className="size-3.5" /> */}
-              <span className="size-3.5">➡️</span>
+              <CornerDownLeft className="size-3.5" />
             </Button>
           </div>
         </form>

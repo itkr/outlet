@@ -1,4 +1,11 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import {
+  Calendar,
+  Home,
+  Inbox,
+  Search,
+  Settings,
+  ArrowUp,
+} from "lucide-react"
 
 import {
   Sidebar,
@@ -84,7 +91,7 @@ export function AppSidebar() {
                 <SidebarMenuButton>
                   <span>Username</span>
                   <span className="ml-auto">
-                    ↑
+                    <ArrowUp className="size-4" />
                   </span>
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
