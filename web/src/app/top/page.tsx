@@ -12,14 +12,21 @@ import { ChatMessageList } from "@/components/ui/chat/chat-message-list";
 import { ChatInput } from "@/components/ui/chat/chat-input";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-
 import {
-  Paperclip,
-  Mic,
-  CornerDownLeft,
-  ThumbsUp,
-  ThumbsDown,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import {
   CircleHelp,
+  CornerDownLeft,
+  Mic,
+  Paperclip,
+  ThumbsDown,
+  ThumbsUp,
 } from "lucide-react";
 
 const metadata = {
@@ -93,6 +100,17 @@ const Page: FC = () => {
 
   return (
     <div className="flex flex-col gap-4">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/top">Top</BreadcrumbLink>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
       <h1 className="text-2xl font-bold">Top Page</h1>
       <p>This is the top page.</p>
       <div>

@@ -60,6 +60,7 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarContent>
+        <h1 className="text-2xl font-bold p-4 pb-0">Outlet</h1>
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
