@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Web アプリケーション
 
-## Getting Started
+Outlet プロジェクトのフロントエンドアプリケーションです。Next.js 15 と React 19 を使用したモダンなウェブアプリケーションで、チャット機能とサイドバーナビゲーションを備えています。
 
-First, run the development server:
+## 技術スタック
+
+- **Next.js 15.3.1** - React フレームワーク (App Router)
+- **React 19** - UI ライブラリ
+- **TypeScript** - 型安全な開発
+- **Tailwind CSS v4** - ユーティリティファーストCSS
+- **shadcn/ui** - 再利用可能なUIコンポーネント
+- **Radix UI** - アクセシブルなUIプリミティブ
+- **Lucide React** - アイコンライブラリ
+
+## 開始方法
+
+### 前提条件
+
+- Node.js 18 以上
+- npm, yarn, pnpm, または bun
+
+### 開発サーバーの起動
 
 ```bash
 npm run dev
-# or
+# または
 yarn dev
-# or
+# または
 pnpm dev
-# or
+# または
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) をブラウザで開いて結果を確認してください。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`src/app/page.tsx` を編集してページの内容を変更できます。ファイルを編集すると自動的にページが更新されます。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## プロジェクト構成
 
-## Learn More
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── page.tsx           # ホームページ
+│   ├── layout.tsx         # ルートレイアウト
+│   └── top/               # /top ルート
+├── components/
+│   ├── ui/                # 基本UIコンポーネント
+│   │   ├── button.tsx
+│   │   ├── sidebar.tsx
+│   │   └── chat/          # チャット関連コンポーネント
+│   │       ├── chat-bubble.tsx
+│   │       ├── chat-input.tsx
+│   │       ├── chat-message-list.tsx
+│   │       └── expandable-chat.tsx
+│   └── app-sidebar.tsx    # アプリケーションサイドバー
+├── hooks/                 # カスタムフック
+└── lib/                   # ユーティリティ関数
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 主な機能
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### チャット機能
+- リアルタイムチャットUI
+- メッセージバブル表示
+- 展開可能なチャットインターフェース
+- ローディング状態の表示
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ユーザーインターフェース
+- レスポンシブデザイン
+- ダークモード対応
+- アクセシブルなコンポーネント
+- サイドバーナビゲーション
 
-## Deploy on Vercel
+## スクリプト
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run dev      # 開発サーバー起動 (Turbopack使用)
+npm run build    # プロダクションビルド
+npm run start    # プロダクションサーバー起動
+npm run lint     # ESLint実行
+npm run format   # Prettier実行
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## コンポーネント設計
+
+このプロジェクトは shadcn/ui の "new-york" スタイルを採用し、再利用可能なコンポーネントアーキテクチャを採用しています。
+
+- **基本コンポーネント**: `src/components/ui/` 内の汎用的なUIコンポーネント
+- **機能別コンポーネント**: `src/components/ui/chat/` のような機能特化コンポーネント
+- **レイアウトコンポーネント**: アプリケーション全体のレイアウト管理
+
+## デプロイ
+
+### Vercel
+
+最も簡単なデプロイ方法は [Vercel Platform](https://vercel.com/new) を使用することです。
+
+詳細については [Next.js デプロイメントドキュメント](https://nextjs.org/docs/app/building-your-application/deploying) を参照してください。
+
+## 開発ガイドライン
+
+- TypeScript の型定義を適切に使用してください
+- コンポーネントは可能な限り再利用可能な設計にしてください
+- Tailwind CSS のユーティリティクラスを活用してください
+- アクセシビリティを考慮したコンポーネント設計を心がけてください
